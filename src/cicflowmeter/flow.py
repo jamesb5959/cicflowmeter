@@ -140,46 +140,46 @@ class Flow:
             "Bwd IAT Mean": backward_iat["mean"],
             "Bwd IAT Std": backward_iat["std"],
             # Flags statistics
-            "fwd_psh_flags": flag_count.count("PSH", PacketDirection.FORWARD),
-            "bwd_psh_flags": flag_count.count("PSH", PacketDirection.REVERSE),
-            "fwd_urg_flags": flag_count.count("URG", PacketDirection.FORWARD),
-            "bwd_urg_flags": flag_count.count("URG", PacketDirection.REVERSE),
-            "fin_flag_cnt": flag_count.count("FIN"),
-            "syn_flag_cnt": flag_count.count("SYN"),
-            "rst_flag_cnt": flag_count.count("RST"),
-            "psh_flag_cnt": flag_count.count("PSH"),
-            "ack flag cnt": flag_count.count("ACK"),
-            "urg flag cnt": flag_count.count("URG"),
-            "ece flag cnt": flag_count.count("ECE"),
+            "Fwd PSH Flags": flag_count.count("PSH", PacketDirection.FORWARD),
+            "Bwd PSH Flags": flag_count.count("PSH", PacketDirection.REVERSE),
+            "Fwd URG Flags": flag_count.count("URG", PacketDirection.FORWARD),
+            "Bwd URG Flags": flag_count.count("URG", PacketDirection.REVERSE),
+            "FIN Flag Cnt": flag_count.count("FIN"),
+            "SYN Flag Cnt": flag_count.count("SYN"),
+            "RST Flag Cnt": flag_count.count("RST"),
+            "PSH Flag Cnt": flag_count.count("PSH"),
+            "ACK Flag Cnt": flag_count.count("ACK"),
+            "URG Flag Cnt": flag_count.count("URG"),
+            "ECE Flag Cnt": flag_count.count("ECE"),
             # Response Time
-            "down_up_ratio": packet_count.get_down_up_ratio(),
-            "pkt_size_avg": packet_length.get_avg(),
-            "init_fwd_win_byts": self.init_window_size[PacketDirection.FORWARD],
-            "init_bwd_win_byts": self.init_window_size[PacketDirection.REVERSE],
-            "active_max": active_stat["max"],
-            "active_min": active_stat["min"],
-            "active_mean": active_stat["mean"],
-            "active_std": active_stat["std"],
-            "idle_max": idle_stat["max"],
-            "idle_min": idle_stat["min"],
-            "idle_mean": idle_stat["mean"],
-            "idle_std": idle_stat["std"],
-            "fwd_byts_b_avg": flow_bytes.get_bytes_per_bulk(PacketDirection.FORWARD),
-            "fwd_pkts_b_avg": flow_bytes.get_packets_per_bulk(PacketDirection.FORWARD),
-            "bwd_byts_b_avg": flow_bytes.get_bytes_per_bulk(PacketDirection.REVERSE),
-            "bwd_pkts_b_avg": flow_bytes.get_packets_per_bulk(PacketDirection.REVERSE),
-            "fwd_blk_rate_avg": flow_bytes.get_bulk_rate(PacketDirection.FORWARD),
-            "bwd_blk_rate_avg": flow_bytes.get_bulk_rate(PacketDirection.REVERSE),
+            "Down/Up Ratio": packet_count.get_down_up_ratio(),
+            "Pkt Size Avg": packet_length.get_avg(),
+            "Init Fwd Win Byts": self.init_window_size[PacketDirection.FORWARD],
+            "Init Bwd Win Byts": self.init_window_size[PacketDirection.REVERSE],
+            "Active Max": active_stat["max"],
+            "Active Min": active_stat["min"],
+            "Active Mean": active_stat["mean"],
+            "Active Std": active_stat["std"],
+            "Idle Max": idle_stat["max"],
+            "Idle Min": idle_stat["min"],
+            "Idle Mean": idle_stat["mean"],
+            "Idle Std": idle_stat["std"],
+            "Fwd Byts/b Avg": flow_bytes.get_bytes_per_bulk(PacketDirection.FORWARD),
+            "Fwd Pkts/b Avg": flow_bytes.get_packets_per_bulk(PacketDirection.FORWARD),
+            "Bwd Byts/b Avg": flow_bytes.get_bytes_per_bulk(PacketDirection.REVERSE),
+            "Bwd Pkts/b Avg": flow_bytes.get_packets_per_bulk(PacketDirection.REVERSE),
+            "Fwd Blk Rate Avg": flow_bytes.get_bulk_rate(PacketDirection.FORWARD),
+            "Bwd Blk Rate Avg": flow_bytes.get_bulk_rate(PacketDirection.REVERSE),
         }
 
         # Duplicated features
-        data["fwd_seg_size_avg"] = data["fwd_pkt_len_mean"]
-        data["bwd_seg_size_avg"] = data["bwd_pkt_len_mean"]
-        data["cwr_flag_count"] = data["fwd_urg_flags"]
-        data["subflow_fwd_pkts"] = data["tot_fwd_pkts"]
-        data["subflow_bwd_pkts"] = data["tot_bwd_pkts"]
-        data["subflow_fwd_byts"] = data["totlen_fwd_pkts"]
-        data["subflow_bwd_byts"] = data["totlen_bwd_pkts"]
+        data["Fwd Seg Size Avg"] = data["Fwd Pkt Len Mean"]
+        data["Bwd Seg Size Avg"] = data["Bwd Pkt Len Mean"]
+        data["CWE Flag Count"] = data["Fwd Urg Flags"]
+        data["Subflow Fwd Pkts"] = data["Tot Fwd Pkts"]
+        data["Subflow Bwd Pkts"] = data["Tot Bwd Pkts"]
+        data["Subflow Fwd Byts"] = data["TotLen Fwd Pkts"]
+        data["Subflow Bwd Byts"] = data["TotLen Bwd Pkts"]
 
         if include_fields is not None:
             data = {k: v for k, v in data.items() if k in include_fields}
