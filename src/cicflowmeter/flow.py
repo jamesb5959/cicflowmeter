@@ -175,7 +175,7 @@ class Flow:
         # Duplicated features
         data["Fwd Seg Size Avg"] = data["Fwd Pkt Len Mean"]
         data["Bwd Seg Size Avg"] = data["Bwd Pkt Len Mean"]
-        data["CWE Flag Count"] = data["Fwd Urg Flags"]
+        data["CWE Flag Count"] = data["Fwd URG Flags"]
         data["Subflow Fwd Pkts"] = data["Tot Fwd Pkts"]
         data["Subflow Bwd Pkts"] = data["Tot Bwd Pkts"]
         data["Subflow Fwd Byts"] = data["TotLen Fwd Pkts"]
