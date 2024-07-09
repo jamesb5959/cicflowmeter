@@ -3,7 +3,7 @@ import os
 from setuptools import find_packages, setup
 
 REQUIRES_PYTHON = ">=3.7.0"
-VERSION = None
+VERSION = "1.0.0"
 
 # Directly listing dependencies
 REQUIRED = [
@@ -67,3 +67,4 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
 )
+
